@@ -6,7 +6,11 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 insert_final_newline = true
-trim_trailing_whitespace = true
+#trim_trailing_whitespace = true
+
+[*.html]
+ij_html_quote_style = double
+ij_any_keep_indents_on_empty_lines = true
 
 [*.md]
 max_line_length = off

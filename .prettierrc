@@ -1,5 +1,15 @@
 {
     "singleQuote": true,
     "tabWidth": 4,
-    "bracketSpacing": false
+    "bracketSpacing": false,
+    "htmlWhitespaceSensitivity": "ignore",
+    "jsxBracketSameLine": true,
+    "overrides": [
+        {
+            "files": ["*.html"],
+            "options": {
+                "singleQuote": false
+            }
+        }
+    ]
 }

@@ -1,3 +1,35 @@
+# Created Using 
+
+### Creating worspace
+`yarn create nx-workspace`
+
+### Angular Schematics capabilities
+`yarn add @nrwl/angular -D`
+
+### Angular app
+`nx g @nrwl/angular:app angular-web`
+
+### React Schematics capabilities
+`yarn add @nrwl/react -D`
+
+### Nest Schematics capabilities
+`yarn add @nrwl/nest -D`
+
+
+### React app
+`nx g @nrwl/react:app react-web`
+
+
+### Angular lib
+`nx g @nrwl/angular:lib angular-ui`
+
+### React lib
+`nx g @nrwl/react:lib react-ui`
+
+### Nest lib
+`nx g @nrwl/nest:app nest-app`
+
+
 # NxExamples
 
 This project was generated using [Nx](https://nx.dev).

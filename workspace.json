@@ -1,257 +1,380 @@
 {
-    "version": 2,
-    "projects": {
-        "angular-web": {
-            "projectType": "application",
-            "root": "apps/angular-web",
-            "sourceRoot": "apps/angular-web/src",
-            "prefix": "nx-examples",
-            "targets": {
-                "build": {
-                    "executor": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist/apps/angular-web",
-                        "index": "apps/angular-web/src/index.html",
-                        "main": "apps/angular-web/src/main.ts",
-                        "polyfills": "apps/angular-web/src/polyfills.ts",
-                        "tsConfig": "apps/angular-web/tsconfig.app.json",
-                        "aot": true,
-                        "assets": [
-                            "apps/angular-web/src/favicon.ico",
-                            "apps/angular-web/src/assets"
-                        ],
-                        "styles": ["apps/angular-web/src/styles.scss"],
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "apps/angular-web/src/environments/environment.ts",
-                                    "with": "apps/angular-web/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "executor": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "angular-web:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "angular-web:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "executor": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "angular-web:build"
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "apps/angular-web/src/**/*.ts",
-                            "apps/angular-web/src/**/*.html"
-                        ]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/angular-web"],
-                    "options": {
-                        "jestConfig": "apps/angular-web/jest.config.js",
-                        "passWithNoTests": true
-                    }
+  "version": 2,
+  "projects": {
+    "angular-web": {
+      "projectType": "application",
+      "root": "apps/angular-web",
+      "sourceRoot": "apps/angular-web/src",
+      "prefix": "nx-examples",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-web",
+            "index": "apps/angular-web/src/index.html",
+            "main": "apps/angular-web/src/main.ts",
+            "polyfills": "apps/angular-web/src/polyfills.ts",
+            "tsConfig": "apps/angular-web/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/angular-web/src/favicon.ico",
+              "apps/angular-web/src/assets"
+            ],
+            "styles": [
+              "apps/angular-web/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-web/src/environments/environment.ts",
+                  "with": "apps/angular-web/src/environments/environment.prod.ts"
                 }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
+          }
         },
-        "angular-web-e2e": {
-            "root": "apps/angular-web-e2e",
-            "sourceRoot": "apps/angular-web-e2e/src",
-            "projectType": "application",
-            "targets": {
-                "e2e": {
-                    "executor": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/angular-web-e2e/cypress.json",
-                        "tsConfig": "apps/angular-web-e2e/tsconfig.e2e.json",
-                        "devServerTarget": "angular-web:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "angular-web:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "apps/angular-web-e2e/**/*.{js,ts}"
-                        ]
-                    }
-                }
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-web:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-web:build:production"
             }
+          }
         },
-        "react-web": {
-            "root": "apps/react-web",
-            "sourceRoot": "apps/react-web/src",
-            "projectType": "application",
-            "targets": {
-                "build": {
-                    "executor": "@nrwl/web:build",
-                    "outputs": ["{options.outputPath}"],
-                    "options": {
-                        "outputPath": "dist/apps/react-web",
-                        "index": "apps/react-web/src/index.html",
-                        "main": "apps/react-web/src/main.tsx",
-                        "polyfills": "apps/react-web/src/polyfills.ts",
-                        "tsConfig": "apps/react-web/tsconfig.app.json",
-                        "assets": [
-                            "apps/react-web/src/favicon.ico",
-                            "apps/react-web/src/assets"
-                        ],
-                        "styles": ["apps/react-web/src/styles.scss"],
-                        "scripts": [],
-                        "webpackConfig": "@nrwl/react/plugins/webpack"
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "apps/react-web/src/environments/environment.ts",
-                                    "with": "apps/react-web/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "executor": "@nrwl/web:dev-server",
-                    "options": {
-                        "buildTarget": "react-web:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "buildTarget": "react-web:build:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "apps/react-web/**/*.{ts,tsx,js,jsx}"
-                        ]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/react-web"],
-                    "options": {
-                        "jestConfig": "apps/react-web/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-web:build"
+          }
         },
-        "react-web-e2e": {
-            "root": "apps/react-web-e2e",
-            "sourceRoot": "apps/react-web-e2e/src",
-            "projectType": "application",
-            "targets": {
-                "e2e": {
-                    "executor": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/react-web-e2e/cypress.json",
-                        "tsConfig": "apps/react-web-e2e/tsconfig.e2e.json",
-                        "devServerTarget": "react-web:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "react-web:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/react-web-e2e/**/*.{js,ts}"]
-                    }
-                }
-            }
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/angular-web/src/**/*.ts",
+              "apps/angular-web/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/angular-web"
+          ],
+          "options": {
+            "jestConfig": "apps/angular-web/jest.config.js",
+            "passWithNoTests": true
+          }
         }
+      }
     },
-    "cli": {
-        "defaultCollection": "@nrwl/angular"
-    },
-    "generators": {
-        "@nrwl/angular:application": {
-            "style": "scss",
-            "linter": "eslint",
-            "unitTestRunner": "jest",
-            "e2eTestRunner": "cypress"
-        },
-        "@nrwl/angular:library": {
-            "style": "scss",
-            "linter": "eslint",
-            "unitTestRunner": "jest"
-        },
-        "@nrwl/angular:component": {
-            "style": "scss"
-        },
-        "@nrwl/react": {
-            "application": {
-                "style": "scss",
-                "linter": "eslint",
-                "babel": true
-            },
-            "component": {
-                "style": "scss"
-            },
-            "library": {
-                "style": "scss",
-                "linter": "eslint"
+    "angular-web-e2e": {
+      "root": "apps/angular-web-e2e",
+      "sourceRoot": "apps/angular-web-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-web-e2e/cypress.json",
+            "tsConfig": "apps/angular-web-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-web:serve:production"
             }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/angular-web-e2e/**/*.{js,ts}"
+            ]
+          }
         }
+      }
     },
-    "defaultProject": "angular-web"
+    "react-web": {
+      "root": "apps/react-web",
+      "sourceRoot": "apps/react-web/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/react-web",
+            "index": "apps/react-web/src/index.html",
+            "main": "apps/react-web/src/main.tsx",
+            "polyfills": "apps/react-web/src/polyfills.ts",
+            "tsConfig": "apps/react-web/tsconfig.app.json",
+            "assets": [
+              "apps/react-web/src/favicon.ico",
+              "apps/react-web/src/assets"
+            ],
+            "styles": [
+              "apps/react-web/src/styles.scss"
+            ],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/react-web/src/environments/environment.ts",
+                  "with": "apps/react-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "react-web:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "react-web:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/react-web/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/react-web"
+          ],
+          "options": {
+            "jestConfig": "apps/react-web/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "react-web-e2e": {
+      "root": "apps/react-web-e2e",
+      "sourceRoot": "apps/react-web-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/react-web-e2e/cypress.json",
+            "tsConfig": "apps/react-web-e2e/tsconfig.e2e.json",
+            "devServerTarget": "react-web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "react-web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/react-web-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "angular-ui": {
+      "projectType": "library",
+      "root": "libs/angular-ui",
+      "sourceRoot": "libs/angular-ui/src",
+      "prefix": "nx-examples",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/angular-ui/src/**/*.ts",
+              "libs/angular-ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/angular-ui"
+          ],
+          "options": {
+            "jestConfig": "libs/angular-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "react-ui": {
+      "root": "libs/react-ui",
+      "sourceRoot": "libs/react-ui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react-ui/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react-ui"
+          ],
+          "options": {
+            "jestConfig": "libs/react-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nest-app": {
+      "root": "apps/nest-app",
+      "sourceRoot": "apps/nest-app/src",
+      "projectType": "application",
+      "prefix": "nest-app",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/nest-app",
+            "main": "apps/nest-app/src/main.ts",
+            "tsConfig": "apps/nest-app/tsconfig.app.json",
+            "assets": [
+              "apps/nest-app/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/nest-app/src/environments/environment.ts",
+                  "with": "apps/nest-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "nest-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nest-app/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/nest-app"
+          ],
+          "options": {
+            "jestConfig": "apps/nest-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "angular-web"
 }
