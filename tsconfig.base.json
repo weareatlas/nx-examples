@@ -15,8 +15,12 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@nx-examples/angular-lib": ["libs/angular-lib/src/index.ts"],
             "@nx-examples/angular-ui": ["libs/angular-ui/src/index.ts"],
-            "@nx-examples/react-ui": ["libs/react-ui/src/index.ts"]
+            "@nx-examples/js-lib": ["libs/js-lib/src/index.ts"],
+            "@nx-examples/node-lib": ["libs/node-lib/src/index.ts"],
+            "@nx-examples/react-ui": ["libs/react-ui/src/index.ts"],
+            "@nx-examples/temp-lib": ["libs/temp-lib/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

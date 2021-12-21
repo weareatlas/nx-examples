@@ -1,9 +1,14 @@
 {
     "npmScope": "nx-examples",
-    "affected": {"defaultBase": "master"},
+    "affected": {
+        "defaultBase": "master"
+    },
     "implicitDependencies": {
         "workspace.json": "*",
-        "package.json": {"dependencies": "*", "devDependencies": "*"},
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
         "tsconfig.base.json": "*",
         "tslint.json": "*",
         ".eslintrc.json": "*",
@@ -12,19 +17,59 @@
     "tasksRunnerOptions": {
         "default": {
             "runner": "@nrwl/workspace/tasks-runners/default",
-            "options": {"cacheableOperations": ["build", "lint", "test", "e2e"]}
+            "options": {
+                "cacheableOperations": [
+                    "build",
+                    "lint",
+                    "test",
+                    "e2e",
+                    "build-storybook"
+                ]
+            }
         }
     },
     "projects": {
-        "angular-web": {"tags": []},
+        "angular-lib": {
+            "tags": []
+        },
+        "angular-ui": {
+            "tags": []
+        },
+        "angular-web": {
+            "tags": []
+        },
         "angular-web-e2e": {
             "tags": [],
             "implicitDependencies": ["angular-web"]
         },
-        "react-web": {"tags": []},
-        "react-web-e2e": {"tags": [], "implicitDependencies": ["react-web"]},
-        "angular-ui": {"tags": []},
-        "react-ui": {"tags": []},
-        "nest-app": {"tags": []}
+        "atlas-web": {
+            "tags": []
+        },
+        "atlas-web-e2e": {
+            "tags": [],
+            "implicitDependencies": ["atlas-web"]
+        },
+        "js-lib": {
+            "tags": []
+        },
+        "nest-app": {
+            "tags": []
+        },
+        "node-lib": {
+            "tags": []
+        },
+        "react-ui": {
+            "tags": []
+        },
+        "react-web": {
+            "tags": []
+        },
+        "react-web-e2e": {
+            "tags": [],
+            "implicitDependencies": ["react-web"]
+        },
+        "temp-lib": {
+            "tags": []
+        }
     }
 }

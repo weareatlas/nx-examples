@@ -7,6 +7,20 @@
     <h1>Welcome to {{ title }}!</h1>
 </header>
 <main>
+    
+    <h2>Sample Form</h2>
+    
+    <ng-container *ngIf="!isValid; else pass">
+        <button data-cy="feedback-button" (click)="isValid = true" class="resource flex w-100">
+            Send Feedback
+        </button>
+    </ng-container>
+    <ng-template #pass>
+        <p data-cy="feedback-message">
+            Thank you for your feedback!
+        </p>
+    </ng-template>
+    
     <h2>Resources &amp; Tools</h2>
     <p>Thank you for using and showing some ♥ for Nx.</p>
     <div class="flex github-star-container">

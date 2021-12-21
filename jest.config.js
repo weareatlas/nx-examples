@@ -5,5 +5,10 @@ module.exports = {
         '<rootDir>/libs/angular-ui',
         '<rootDir>/libs/react-ui',
         '<rootDir>/apps/nest-app',
+        '<rootDir>/apps/atlas-web',
+        '<rootDir>/libs/temp-lib',
+        '<rootDir>/libs/node-lib',
+        '<rootDir>/libs/js-lib',
+        '<rootDir>/libs/angular-lib',
     ],
 };
